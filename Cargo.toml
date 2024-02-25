@@ -6,6 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+actix-web = "4"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 
-[target.x86_64-apple-darwin]
+# macos
+#[target.x86_64-apple-darwin]
+#rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# windows
+[target.x86_64-pc-windows-msvc]
 rustflags = ["-C", "link-arg=-fuse-ld=lld"]
