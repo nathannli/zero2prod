@@ -7,4 +7,4 @@ cargo install cargo-watch cargo-audit
 rustup component add clippy rustfmt
 
 # current page
-p.25
+p. 35 @ 3.5.1
