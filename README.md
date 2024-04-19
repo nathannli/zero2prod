@@ -5,9 +5,11 @@ p.5
 cargo install cargo-watch cargo-audit
 # rustup installs
 rustup component add clippy rustfmt
+# database setup
+p.55
 
 # current page
-p. 38 @ 3.6
+p. 55 @ 3.8.4.1
 
 # dependencies
 ## linux
