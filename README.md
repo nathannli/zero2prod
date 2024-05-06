@@ -2,7 +2,7 @@
 p.5
 
 # cargo installs
-cargo install cargo-watch cargo-audit
+cargo install cargo-watch cargo-audit <br>
 cargo install --version='~0.7' sqlx-cli --no-default-features --features rustls,postgres
 # rustup installs
 rustup component add clippy rustfmt
