@@ -31,6 +31,7 @@ fn spawn_app() -> String {
 async fn subscribe_returns_a_200_for_valid_form_data() {
     // get web app url
     let app_address = spawn_app();
+    println!("app_address: {}", app_address);
     // get web app & db config
     let configuration = get_configuration().expect("failed to get config");
     // setup postgres connection
