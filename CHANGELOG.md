@@ -1,3 +1,12 @@
+## [0.3] - 2025-09-14
+
+### 🚀 Features
+
+- *(tests)* Fix
+
+### 🐛 Bug Fixes
+
+- *(compile and linking configs)* Fix
 ## [0.2] - 2025-09-14
 
 ### 🚀 Features
