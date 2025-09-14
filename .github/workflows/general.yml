@@ -11,7 +11,7 @@ env:
   APP_USER: app
   APP_USER_PWD: secret
   APP_DB_NAME: newsletter
-  DOCKER_POSTGRES_IMAGE: "postgres:14"
+
 # A workflow run is made up of one or more jobs, which run in parallel by default
 # Each job runs in a runner environment specified by runs-on
 jobs:
@@ -26,7 +26,7 @@ jobs:
       # Label used to access the service container
       postgres:
         # Docker Hub image
-        image: ${{ env.DOCKER_POSTGRES_IMAGE }}
+        image: postgres:14
         # Environment variables scoped only for the `postgres` element
         env:
           POSTGRES_USER: postgres
@@ -66,7 +66,7 @@ jobs:
       - name: Migrate database
         run: |
           SKIP_DOCKER=true
-          CONTAINER_NAME=$(docker ps --filter "ancestor=${{ env.DOCKER_POSTGRES_IMAGE }}" --format '{{.Names}}')
+          CONTAINER_NAME=$(docker ps --filter "ancestor=postgres:14" --format '{{.Names}}')
           ./scripts/init_db.sh
 
       - name: Create app user in Postgres
@@ -127,7 +127,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: ${{ env.DOCKER_POSTGRES_IMAGE }}
+        image: postgres:14
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
