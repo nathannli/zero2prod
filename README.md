@@ -8,15 +8,18 @@ cargo install --version='~0.7' sqlx-cli --no-default-features --features rustls,
 # rustup installs
 rustup component add clippy rustfmt
 
+# .cargo/config.toml
+check for package dependencies
+
 # database setup
 p.55
 script needs to be run at root of project (next to migrations folder)
 
 # current page
-p. 69 @ 3.8.5.5
+p. 86 @ 4.0
 
 # dependencies
-## linux
+## linux (not always?)
 - apt install pkg-config libssl-dev postgresql-client
 
 # check if webserver alive
