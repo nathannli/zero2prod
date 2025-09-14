@@ -18,7 +18,10 @@ if [ -z "$1" ]; then
 else
     # If the first argument is provided, use it
     if [ "$1" = "true" ] || [ "$1" = "false" ]; then
-    SKIP_DOCKER="$1"
+      SKIP_DOCKER="$1"
+    else
+        usage_string
+    fi
 fi
 
 # check if psql & sqlx-cli are installed
