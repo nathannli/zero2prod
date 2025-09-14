@@ -42,7 +42,7 @@ DB_PORT="${POSTGRES_PORT:=5432}"
 DB_HOST="${POSTGRES_HOST:=localhost}"
 
 # launch postgres via docker if container not exists
-CONTAINER_NAME="postgres"
+CONTAINER_NAME="${CONTAINER_NAME:=postgres}"
 if [ "${SKIP_DOCKER}" = "false" ]; then
   docker run \
     --env POSTGRES_USER=${SUPER_USER} \
