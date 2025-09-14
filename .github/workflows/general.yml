@@ -37,7 +37,6 @@ jobs:
         ports:
           - 5432:5432
     steps:
-      - uses: valeriangalliat/action-sshd-cloudflared@v1
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         # The uses keyword specifies that this step will run v4 of the actions/checkout action.
@@ -76,6 +75,9 @@ jobs:
 
       - name: Check that queries are fresh
         run: cargo sqlx prepare --workspace --check -- --all-targets
+
+      - name: setup ssh debug
+        uses: valeriangalliat/action-sshd-cloudflared@v1
 
   # `fmt` container job
   fmt:
