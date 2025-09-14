@@ -2,13 +2,23 @@
 set -x
 set -eo pipefail
 
-# Check if the first argument is provided and valid
-if [ "$1" = "true" ] || [ "$1" = "false" ]; then
-    SKIP_DOCKER="$1"
-else
+function usage_string() {
     echo "Usage: $0 [true|false]"
     echo "Please provide 'true' or 'false' as the first argument to skip or use Docker."
     exit 1
+}
+
+# Check if the first argument is provided and valid
+if [ -z "$1" ]; then
+    # If the first argument is not provided, try to get SKIP_DOCKER from the environment variable
+    SKIP_DOCKER="${SKIP_DOCKER}"
+    if [ -z "$SKIP_DOCKER" ]; then
+        usage_string
+    fi
+else
+    # If the first argument is provided, use it
+    if [ "$1" = "true" ] || [ "$1" = "false" ]; then
+    SKIP_DOCKER="$1"
 fi
 
 # check if psql & sqlx-cli are installed
