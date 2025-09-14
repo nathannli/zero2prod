@@ -58,9 +58,16 @@ if [ "${SKIP_DOCKER}" = "false" ]; then
 fi
 
 # wait until db is ready before continue
+MAX_WAIT=60
+WAITED=0
 until [ "$(docker inspect -f "{{.State.Health.Status}}" ${CONTAINER_NAME})" == "healthy" ]; do
+  if [ "$WAITED" -ge "$MAX_WAIT" ]; then
+    >&2 echo "Postgres did not become healthy after ${MAX_WAIT} seconds. Failing."
+    exit 1
+  fi
   >&2 echo "Postgres is still unavailable - sleeping"
   sleep 2
+  WAITED=$((WAITED + 2))
 done
 >&2 echo "Postgres container is ready on port ${DB_PORT}"
 
