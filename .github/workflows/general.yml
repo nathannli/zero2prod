@@ -43,7 +43,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: valeriangalliat/action-sshd-cloudflared@v1
+      # - uses: valeriangalliat/action-sshd-cloudflared@v1
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         # The uses keyword specifies that this step will run v4 of the actions/checkout action.
@@ -65,8 +65,8 @@ jobs:
 
       - name: Migrate database
         run: |
-          SKIP_DOCKER=true
-          CONTAINER_NAME=$(docker ps --filter "ancestor=postgres:14" --format '{{.Names}}')
+          export SKIP_DOCKER=true
+          export CONTAINER_NAME=$(docker ps --filter "ancestor=postgres:14" --format '{{.Names}}')
           ./scripts/init_db.sh
 
       - name: Create app user in Postgres
