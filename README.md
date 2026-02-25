@@ -14,6 +14,7 @@ check for package dependencies
 # database setup
 p.55
 script needs to be run at root of project (next to migrations folder)
+`./scripts/init_db.sh <true|false>`
 
 # current page
 p. 86 @ 4.0
@@ -21,7 +22,10 @@ p. 86 @ 4.0
 # dependencies
 ## linux (not always?)
 - apt install pkg-config libssl-dev postgresql-client
+## macos (arm)
+
 
 # check if webserver alive
+after initializing the database.. <br>
 after running `cargo run`, run `curl -v localhost:8000/health_check`, should return 200
 < HTTP/1.1 200 OK
