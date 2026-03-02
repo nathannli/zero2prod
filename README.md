@@ -17,7 +17,7 @@ script needs to be run at root of project (next to migrations folder)
 `./scripts/init_db.sh <true|false>`
 
 # current page
-p. 86 @ 4.0
+p. 133 epub
 
 # dependencies
 ## linux (not always?)
